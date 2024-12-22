@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Row Hider",
+    "version": "1.0",
+    "description": "Hides table rows containing disabled buttons",
+    "permissions": ["activeTab", "storage"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }

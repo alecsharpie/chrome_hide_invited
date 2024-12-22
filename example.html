@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Table with Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button.arco-btn-disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #controls {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button onclick="toggleRandomButton()">Toggle Random Button</button>
+        <button onclick="resetAllButtons()">Reset All Buttons</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td><button onclick="this.classList.toggle('arco-btn-disabled')">Invite</button></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Jane Smith</td>
+                <td>jane@example.com</td>
+                <td><button class="arco-btn-disabled" onclick="this.classList.toggle('arco-btn-disabled')">Invite</button></td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Bob Wilson</td>
+                <td>bob@example.com</td>
+                <td><button onclick="this.classList.toggle('arco-btn-disabled')">Invite</button></td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>Alice Brown</td>
+                <td>alice@example.com</td>
+                <td><button class="arco-btn-disabled" onclick="this.classList.toggle('arco-btn-disabled')">Invite</button></td>
+            </tr>
+            <tr>
+                <td>005</td>
+                <td>Charlie Davis</td>
+                <td>charlie@example.com</td>
+                <td><button onclick="this.classList.toggle('arco-btn-disabled')">Invite</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function toggleRandomButton() {
+            const buttons = document.querySelectorAll('table button');
+            const randomButton = buttons[Math.floor(Math.random() * buttons.length)];
+            randomButton.classList.toggle('arco-btn-disabled');
+        }
+
+        function resetAllButtons() {
+            const buttons = document.querySelectorAll('table button');
+            buttons.forEach(button => {
+                button.classList.remove('arco-btn-disabled');
+            });
+        }
+    </script>
+</body>
+</html>
